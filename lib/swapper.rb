@@ -5,6 +5,7 @@ require 'site'
 require 'vnexpress_site'
 require 'dantri_site'
 require 'vietnamnet_site'
+require 'ngoisaonet_site'
 
 class Swapper
   attr_reader :site

@@ -1,4 +1,4 @@
-class DantriSite < Site
+class DanTriSite < Site
 
   def initialize
     super("http://dantri.com.vn/trangchu.rss")

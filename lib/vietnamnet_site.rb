@@ -12,7 +12,7 @@ class VietNamNetSite < Site
 
   # Get main content from body page
   def parser(body)
-    # Get the content in the tag ID "outter" 
+    # Get the content in the tag ID "content" 
     body = (body/"#content")
   end
 end

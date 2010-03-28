@@ -1,4 +1,4 @@
-class VnexpressSite < Site
+class VnExpressSite < Site
 
   def initialize
     super("http://vnexpress.net/rss/gl/vi-tinh.rss")
