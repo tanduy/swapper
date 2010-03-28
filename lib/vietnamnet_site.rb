@@ -1,0 +1,2 @@
+class VietNamNetSite
+end
