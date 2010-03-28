@@ -27,6 +27,15 @@ class PostsController < ApplicationController
   def new
     o = Swapper.new(NgoiSaoNetSite.new)
     o.getResource
+    # DanTriSite 
+    o.site = DanTriSite.new
+    o.getResource
+    # VnExpressSite
+    o.site = VnExpressSite.new
+    o.getResource
+    # VietNamNetSite
+    o.site = VietNamNetSite.new
+    o.getResource
 
     @post = Post.new
 

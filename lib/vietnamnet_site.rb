@@ -1,7 +1,7 @@
 class VietNamNetSite < Site
 
   def initialize
-    super("http://vietnamnet.vn/rss/index.rss")
+    super("http://vietnamnet.vn/rss/index.rss", "vietnamnet.vn")
   end
 
   # From link in the RSS, must change into print version of page

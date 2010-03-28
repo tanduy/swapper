@@ -1,9 +1,10 @@
 class Site
-  attr_reader :rssURL
-  attr_accessor :rssURL
+  attr_reader :rssURL, :siteName
+  attr_accessor :rssURL, :siteName
 
-  def initialize(rssURL)
+  def initialize(rssURL, siteName)
     @rssURL = rssURL
+    @siteName = siteName
   end
 
   def getResource
@@ -25,7 +26,7 @@ class Site
         rss = RSSItem.new(item)
         body = getPage(getDownloadLink(rss.link))
         body = parser(body)
-        p = Post.create( :title => rss.title.to_s, :name => "vnexpress.net", :content => body.to_s)
+        p = Post.create( :title => rss.title.to_s, :name => @siteName, :content => body.to_s)
         p.save
       rescue => e
         puts "URL error: " + getDownloadLink(rss.link)
