@@ -3,11 +3,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    # o = Swapper.new(VnexpressSite.new)
-    # o.getResource
-    o = Swapper.new(DantriSite.new)
-    o.getResource
-
     @posts = Post.all
 
     respond_to do |format|
@@ -30,6 +25,11 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
+    # o = Swapper.new(VnexpressSite.new)
+    # o.getResource
+    o = Swapper.new(VietNamNetSite.new)
+    o.getResource
+
     @post = Post.new
 
     respond_to do |format|

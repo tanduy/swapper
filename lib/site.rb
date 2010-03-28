@@ -1,5 +1,3 @@
-require 'base64'
-
 class Site
   attr_reader :rssURL
   attr_accessor :rssURL
@@ -23,11 +21,15 @@ class Site
     #p.save
 
     doc.search("item").each do |item|
-      rss = RSSItem.new(item)
-      body = getPage(getDownloadLink(rss.link))
-      body = parser(body)
-      p = Post.create( :title => rss.title.to_s, :name => "vnexpress.net", :content => body.to_s)
-      p.save
+      begin
+        rss = RSSItem.new(item)
+        body = getPage(getDownloadLink(rss.link))
+        body = parser(body)
+        p = Post.create( :title => rss.title.to_s, :name => "vnexpress.net", :content => body.to_s)
+        p.save
+      rescue => e
+        puts "URL error: " + getDownloadLink(rss.link)
+      end
     end 
   end
 
@@ -43,4 +45,5 @@ class Site
     doc = open(url) { |f| Hpricot(f) }
     doc.at("body")
   end
+
 end

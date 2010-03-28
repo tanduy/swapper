@@ -1,9 +1,10 @@
 require 'hpricot'
 require 'open-uri'
+require 'rss_item'
 require 'site'
 require 'vnexpress_site'
 require 'dantri_site'
-require 'rss_item'
+require 'vietnamnet_site'
 
 class Swapper
   attr_reader :site
@@ -16,4 +17,5 @@ class Swapper
   def getResource
     @site.getResource
   end
+
 end
