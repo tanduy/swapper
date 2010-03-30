@@ -1,7 +1,9 @@
 class NgoiSaoNetSite < Site
 
   def initialize
-    super("http://ngoisao.net/rss/Lam-dep.rss", "ngoisao.net")
+    super
+    @rssURL = "http://ngoisao.net/rss/Lam-dep.rss"
+    @siteName = "ngoisao.net"
   end
 
   # From link in the RSS, must change into print version of page

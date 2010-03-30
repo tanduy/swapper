@@ -1,7 +1,9 @@
 class DanTriSite < Site
 
   def initialize
-    super("http://dantri.com.vn/trangchu.rss", "dantri.com.vn")
+    super
+    @rssURL = "http://dantri.com.vn/trangchu.rss"
+    @siteName = "dantri.com.vn"
   end
 
   # From link in the RSS, must change into print version of page

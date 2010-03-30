@@ -1,4 +1,3 @@
-require 'hpricot'
 class RSSItem
   def title
     @title.inner_text
@@ -22,4 +21,6 @@ class RSSItem
     @link = item.at("link")
     @update = item.at("update")
   end
+  
+  
 end

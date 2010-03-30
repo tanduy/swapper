@@ -25,17 +25,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    o = Swapper.new(NgoiSaoNetSite.new)
-    o.getResource
-    # DanTriSite 
-    o.site = DanTriSite.new
-    o.getResource
-    # VnExpressSite
-    o.site = VnExpressSite.new
-    o.getResource
-    # VietNamNetSite
-    o.site = VietNamNetSite.new
-    o.getResource
+    swapper = Swapper.new
+    swapper.getResources
 
     @post = Post.new
 

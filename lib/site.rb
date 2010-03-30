@@ -2,9 +2,7 @@ class Site
   attr_reader :rssURL, :siteName
   attr_accessor :rssURL, :siteName
 
-  def initialize(rssURL, siteName)
-    @rssURL = rssURL
-    @siteName = siteName
+  def initialize
   end
 
   def getResource
@@ -12,16 +10,9 @@ class Site
     doc = open(@rssURL) do |f| 
       Hpricot.XML(f) 
     end
+
     # Each items in RSS content, get and parser page
-
-    #rss = RSSItem.new(doc.search("item")[0])
-    #body = getPage(getDownloadLink(rss.link))
-    #body = parser(body)
-
-    #p = Post.create( :title => rss.title.to_s, :name => "vnexpress.net", :content => body.to_s)
-    #p.save
-
-    doc.search("item").each do |item|
+    [doc.search("item")[0]].each do |item|
       begin
         rss = RSSItem.new(item)
         body = getPage(getDownloadLink(rss.link))
